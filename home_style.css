@@ -3,6 +3,10 @@ body {
 		margin:0em;
 }
 
+/* Mobile site section*/
+
+/* Mobile Grid Layout */
+
 .grid-container {
   display: grid;
 	overflow-x: hidden !important;
@@ -36,6 +40,8 @@ body {
 .about { grid-area: about; }
 
 .contact { grid-area: contact; }
+
+/* mobile style */
 
 .header{
 	display: block;
@@ -84,7 +90,6 @@ body {
 	width: 250%;
 	margin-left: -62%;
 }
-
 .links a{
   display: block;
 	margin-left: auto;
@@ -160,7 +165,12 @@ body {
 .email {
 	color: #F28927;
 }
+
+/* Desktop style section*/
+
 @media screen and (min-width: 650px) {
+
+/* Desktop Grid */
 
 	.grid-container {
 	  display: grid;
@@ -194,6 +204,8 @@ body {
 	.art_sub { grid-area: art_sub; }
 
 	.contact { grid-area: contact; }
+
+/* Desktop style */
 
 	.header {
 		display: block;

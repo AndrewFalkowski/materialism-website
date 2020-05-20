@@ -3,7 +3,7 @@ body {
 		margin:0em;
 }
 
-.grid-container {
+/* .grid-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -15,7 +15,7 @@ body {
 
 .note { grid-area: note; }
 
-.episode_list { grid-area: episode_list; }
+.episode_list { grid-area: episode_list; } */
 
 .header{
 	display: block;
