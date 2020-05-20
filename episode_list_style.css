@@ -1,0 +1,114 @@
+body {
+		background-color: #061324;
+		margin:0em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "header" "note" "episode_list";
+}
+
+.header { grid-area: header; }
+
+.note { grid-area: note; }
+
+.episode_list { grid-area: episode_list; }
+
+.header{
+	display: block;
+  margin: 0 5% 0 5%;
+	padding-bottom: 1.5em;
+}
+.header a{
+	margin-top: 0.8em;
+	text-decoration: none;
+	color: white;
+	font-size: 4vw;
+	padding-left: 5%;
+	float: right;
+	text-align: left;
+	font-family: 'Source Code Pro', monospace;
+}
+.desktop_logo{display: none;}
+.mobile_logo{
+	width: 15%;
+}
+.info	{
+	margin: 0 5% 0 5%;
+	padding-bottom: 1em;
+}
+.info p{
+	color: #fff;
+	font-family: 'Source Code Pro', monospace;
+	font-size: 4vw;
+}
+.episode{
+	border-top: solid;
+	border-width: 0.1em;
+	color: #fff;
+}
+.episode_list{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.episode_list a {
+	display: block;
+	color: #fff;
+	font-family: 'Source Code Pro', monospace;
+	padding-bottom: 1em;
+	padding-top: 1em;
+	text-decoration: none;
+	font-size: 3.6vw;
+}
+.episode_list a:hover{
+	color: #F28927;
+	font-weight:
+}
+/* Desktop CSS */
+
+@media screen and (min-width: 650px) {
+
+
+	.header {
+		display: block;
+		margin-left: 2.5%;
+		margin-right: 2.5%;
+		padding-bottom: 3em;
+	}
+	.header a{
+		margin-top: 0.7em;
+		text-decoration: none;
+		color: white;
+		font-size: 1.4vw;
+		padding-left: 5%;
+		float: right;
+		text-align: left;
+		font-family: 'Source Code Pro', monospace;
+	}
+	.mobile_logo{display: none;}
+	.desktop_logo{
+		display: block;
+		float: left;
+		width: 25%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.info {
+		width: 50%;
+		margin-left: 2.5%;
+	}
+	.info p {
+		font-size: 1.5vw
+	}
+	.episode_list{
+		width: 70%;
+		margin-left: 2.5%;
+	}
+	.episode_list a{
+		font-size: 1.5vw;
+	}
+
+}
