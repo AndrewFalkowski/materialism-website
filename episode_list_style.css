@@ -92,6 +92,7 @@ body {
 	height: 2.5em;
 	background: #0B2444;
 	border-style: none none solid none;
+	border-width: 0.2em;
 	border-color: #F28927;
 	overflow: hidden;
 	grid-area: search-bar;
