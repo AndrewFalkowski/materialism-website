@@ -9,9 +9,14 @@ fetch(RSS_URL)
     let html = ``;
     items.forEach(el => {
       html += `
-				<div class='episode'>
-				<a href="${el.querySelector("enclosure").getAttribute('url')}" target="_blank" rel="noopener noreferrer">${el.querySelector("title").innerHTML}</a>
-				</div>
+        <li>
+  				<div class='episode'>
+  				<a href="${el.querySelector("enclosure").getAttribute('url')}" target="_blank" rel="noopener noreferrer">${el.querySelector("title").innerHTML}</a>
+            <div class='description'>
+              <p>${el.querySelector("description").innerHTML}</p>
+            </div>
+          </div>
+        </li>
       `;
     });
     document.getElementById("episode_list").insertAdjacentHTML("beforeend", html);

@@ -20,7 +20,7 @@ body {
 .header{
 	display: block;
   margin: 0 5% 0 5%;
-	padding-bottom: 1.5em;
+	padding-bottom: 5%;
 }
 .header a{
 	margin-top: 0.8em;
@@ -36,47 +36,117 @@ body {
 .mobile_logo{
 	width: 15%;
 }
+.content_container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 6em 4em 1fr;
+	grid-template-areas: "info" "search-bar" "episode_container";
+	width: 100%;
+}
 .info	{
 	margin: 0 5% 0 5%;
 	padding-bottom: 1em;
+	grid-area: info;
 }
 .info p{
 	color: #fff;
 	font-family: 'Source Code Pro', monospace;
-	font-size: 4vw;
+	font-size: 3.5vw;
 }
 .episode{
 	border-top: solid;
 	border-width: 0.1em;
 	color: #fff;
 }
-.episode_list{
+.episode_container{
 	margin-left: 5%;
 	margin-right: 5%;
+	padding-top: 1em;
+	grid-area: episode_container;
 }
-.episode_list a {
+.description{
+	display: none;
+}
+.episode_container p {
+	display: none;
+}
+.episode_container a {
 	display: block;
 	color: #fff;
 	font-family: 'Source Code Pro', monospace;
-	padding-bottom: 1em;
-	padding-top: 1em;
+	padding-bottom: 0.75em;
+	padding-top: 0.75em;
 	text-decoration: none;
 	font-size: 3.6vw;
 }
-.episode_list a:hover{
+.episode_container a:hover{
 	color: #F28927;
 	font-weight:
+}
+.search-bar {
+	margin: 0 auto;
+	width: 90%;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 2.5em;
+	background: #0B2444;
+	border-style: none none solid none;
+	border-color: #F28927;
+	overflow: hidden;
+	grid-area: search-bar;
+}
+input {
+	position: relative;
+	top: 45%;
+	transform: translateY(-50%);
+	left: 0.5em;
+	width: 100%;
+	height: 2.5em;
+	margin: 4px 0;
+	border: 0;
+	border-radius: 0;
+	outline: 0;
+	background: #0B2444;
+	box-sizing: border-box;
+	font-size: 1.1em;
+	font-weight: 400;
+	color: #fff;
+	font-family: 'Source Code Pro', monospace;
+}
+ul#episode_list {
+	list-style: none;
+	padding: 0em;
+	margin: 0
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #fff;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+	color: #fff;
 }
 /* Desktop CSS */
 
 @media screen and (min-width: 650px) {
 
-
+	.content_container {
+		display: grid;
+		grid-template-columns: 1fr 0.8fr;
+		grid-template-rows: 5em 1fr;
+		grid-template-areas: "search-bar search-bar" "episode_container info";
+		width: 100%;
+	}
 	.header {
 		display: block;
 		margin-left: 2.5%;
 		margin-right: 2.5%;
-		padding-bottom: 3em;
+		padding-bottom: 5%;
 	}
 	.header a{
 		margin-top: 0.7em;
@@ -92,23 +162,60 @@ body {
 	.desktop_logo{
 		display: block;
 		float: left;
-		width: 25%;
+		width: 30%;
 		margin-left: 0;
 		margin-right: 0;
 	}
 	.info {
-		width: 50%;
-		margin-left: 2.5%;
+		width:80%;
+		display: block;
+		margin: 0 auto;
+		padding-top: 0.5em;
+		padding-left: 3em;
 	}
 	.info p {
-		font-size: 1.5vw
+		font-size: 1.6vw;
+		margin-top: 0
 	}
-	.episode_list{
-		width: 70%;
-		margin-left: 2.5%;
+	.episode_container{
+		width: 100%;
+		margin-left: 5%;
+		padding-top: 1em;
+		grid-area: episode_container;
 	}
-	.episode_list a{
-		font-size: 1.5vw;
+	.episode_container a{
+		font-size: 1.6vw;
+		padding-top: 1em;
 	}
-
+	.search-bar {
+	  margin: 0 auto;
+	  width: 95%;
+		position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+	  height: 60%;
+	  background: #0B2444;
+	  border-style: none none solid none;
+		border-color: #F28927;
+	  overflow: hidden;
+		grid-area: search-bar;
+	}
+	input {
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+  	left: 0.5em;
+    width: 100%;
+    height: 100%;
+    margin: 4px 0;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+		background: #0B2444;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    font-weight: 400;
+		color: #fff;
+		font-family: 'Source Code Pro', monospace;
+	}
 }
