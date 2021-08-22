@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="main.css">
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+  <title>Episodes</title>
+</head>
+<body class='bg-navy'>
+    <header class="navbar navbar-expand-lg navbar-dark bg-navy">
+        <div class="container-fluid">
+          <a class="navbar-brand mb-1" href="index.html" id='logo'>
+              <img src="images/mobile_logo.svg" alt="Materialism Podcast" >
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarNav">
+            <ul class="navbar-nav ms-auto flex-nowrap">
+              <li class="nav-item px-md-3">
+                <a class="text-decoration-none text-white font-monospace" class="nav-link" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item px-md-3">
+                <a class="text-decoration-none text-white font-monospace" class="nav-link active" aria-current="page" href="episodes.html">Episode List</a>
+              </li>
+              <!-- <li class="nav-item px-md-3">
+                <a class="text-decoration-none text-white font-monospace" class="nav-link" href="study.html">About</a>
+              </li>
+              <li class="nav-item px-md-3">
+                <a class="text-decoration-none text-white font-monospace" class="nav-link" href="#">Contact Us</a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col col-lg-8 mx-auto" id="episode_list">
+                <h1 class="display-3 fw-bold pb-3 text-white">Search Our Catalogue</h1>
+                <input autofocus type="text" autocomplete="off" class="form-control rounded-0 bg-navy border-blue border-2 text-white font-monospace mb-3" id="keywords" placeholder="Search for keywords, topics, materials...">
+        		<script type="text/javascript" src="scripts/rss_loader.js"></script>
+            </div>
+            <!-- <div class="col col-md-4 order-first order-md-last">
+                <p class="text-white fs-4">Episodes can be listened to on our website via the list below. Episode files will be opened in a new tab where they can be listened to or downladed to your device.</p>
+            </div> -->
+        </div>
+    </div>
+    <script src="scripts/hilitor.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function(e) {
+        var myHilitor2 = new Hilitor("episode_list");
+        myHilitor2.setMatchType("left");
+        document.getElementById("keywords").addEventListener("keyup", function(e) {
+          myHilitor2.apply(this.value);
+        }, false);
+        }, false);
+    </script>
+
+    <script>
+        $('#keywords').keyup(function () {
+            var filter_array = new Array();
+            var filter = this.value.toLowerCase();  // no need to call jQuery here
+
+            filter_array = filter.split(' '); // split the user input at the spaces
+
+            var arrayLength = filter_array.length; // Get the length of the filter array
+
+            $('.episode').each(function() {
+                /* cache a reference to the current .media (you're using it twice) */
+                var _this = $(this);
+                var title = _this.find('p').text().toLowerCase();
+
+                /*
+                    title and filter are normalized in lowerCase letters
+                    for a case insensitive search
+                 */
+
+                var hidden = 0; // Set a flag to see if a div was hidden
+
+                // Loop through all the words in the array and hide the div if found
+                for (var i = 0; i < arrayLength; i++) {
+                     if (title.indexOf(filter_array[i]) < 0) {
+                        _this.hide();
+                        hidden = 1;
+                    }
+                }
+                // If the flag hasn't been tripped show the div
+                if (hidden == 0)  {
+                   _this.show();
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
