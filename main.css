@@ -10580,7 +10580,7 @@ textarea.form-control-lg {
 }
 
 @media screen and (min-width: 1450px) {
-  #header {
+  #header h1, #header .h1 {
     font-size: 5.5rem;
   }
 }
@@ -10632,6 +10632,10 @@ textarea.form-control-lg {
 
   #footer_art {
     margin-top: -31%;
+  }
+
+  #header h1, #header .h1 {
+    font-size: 2.1rem;
   }
 }
 
